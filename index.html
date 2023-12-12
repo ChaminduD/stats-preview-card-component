@@ -2,32 +2,183 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Stats preview card component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: hsl(233, 47%, 7%);
+    }
+    main{
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .accent{
+      width: 310px;
+      height: 228px;
+      position: absolute;
+      background-color: hsl(277, 64%, 61%);
+      z-index: 1;
+      border-radius: 10px 10px 0 0;
+      mix-blend-mode: multiply;
+    }
+    img{
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+      filter: contrast(64%) brightness(128%);
+    }
+    .container{
+      max-width: 310px;
+      margin: 60px 30px;
+      background-color: hsl(244, 38%, 16%);
+      text-align: center;
+      border-radius: 10px;
+    }
+    .card{
+      padding: 32px;
+    }
+    .card h2{
+      color: hsl(0, 0%, 100%);
+      font-family: 'Inter', sans-serif;
+      font-size: 26px;
+      margin-top: 2px;
+      margin-bottom: 16px;
+    }
+    .card h2 span{
+      color: hsl(277, 64%, 61%);
+    }
+    #paragraph{
+      font-size: 14px;
+      color: hsla(0, 0%, 100%, 0.75);
+      font-family: 'Inter', sans-serif;
+      line-height: 24px;
+      padding-bottom: 20px;
+    }
+    .card .top{
+      color: hsl(0, 0%, 100%);
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 18px;
+    }
+    .card .bottom{
+      color: hsla(0, 0%, 100%, 0.6);
+      text-transform: uppercase;
+      font-family: 'Lexend Deca', sans-serif;
+      font-size: 12px;
+      padding-top: 6px;
+      padding-bottom: 10px;
+    }
+    .attribution{
+      font-size: 11px;
+      text-align: center;
+      color: hsl(0, 0%, 100%);
+    }
+    .attribution a{
+      color: hsl(277, 64%, 61%);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    footer{
+      font-family: 'Inter', sans-serif;
+      padding: 20px;
+    }
+
+    @media only screen and (min-width:960px){
+      .accent{
+        width: 520px;
+        height: 430px;
+        z-index: 1;
+        border-radius: 0 10px 10px 0;
+        mix-blend-mode: multiply;
+      }
+      img{
+        border-radius: 0 10px 10px 0;
+        width: 520px;
+      }
+      .container{
+        display: flex;
+        flex-direction: row-reverse;
+        min-width: 1080px;
+        max-height: 430px;
+      }
+      .card{
+        padding: 60px;
+        text-align: left;
+        position: relative;
+      }
+      .card h2{
+        font-size: 36px;
+        padding-left: 10px;
+      }
+      #paragraph{
+        font-size: 15px;
+        padding-top: 10px;
+        padding-right: 80px;
+        padding-bottom: 70px;
+        padding-left: 10px;
+      }
+      .card .top{
+        display: inline;
+        padding-right: 76px;
+        position: relative;
+        font-size: 24px;
+        padding-left: 10px;
+      }
+      .card .bottom{
+        position: absolute;
+        display: inline-block;
+        margin-left: -150px;
+        margin-top: 28px;
+        font-size: 13px;
+        padding-left: 11px;
+      }
+      .card #bottom-2{
+        margin-left: -135px;
+      }
+      .card #bottom-3{
+        margin-left: -152px;
+      }
+    }
   </style>
 </head>
 <body>
+  <main>
+    <section class="container">
+      <div class="accent"></div>
+      <picture>
+        <source media="(min-width: 960px)" srcset="images/image-header-desktop.jpg">
+        <source media="(min-width: 375px)" srcset="images/image-header-mobile.jpg">
+        <img src="images/image-header-desktop.jpg" alt="Header Image">
+      </picture>
 
-  Get insights that help your business grow.
+      <section class="card">
+        <h2>Get <span>insights</span> that help your business grow.</h2>
 
-  Discover the benefits of data analytics and make better decisions regarding revenue, customer 
-  experience, and overall efficiency.
+        <p id="paragraph">Discover the benefits of data analytics and make better decisions regarding revenue, customer 
+        experience, and overall efficiency.</p>
+    
+        <p class="top">10k+</p> <p class="bottom">companies</p>
+        <p class="top">314</p> <p class="bottom" id="bottom-2">templates</p>
+        <p class="top">12M+</p> <p class="bottom" id="bottom-3">queries</p>
+      </section>
+    </section>
+  </main>
 
-  10k+ companies
-  314 templates
-  12m+ queries
-
-  <div class="attribution">
+  <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    Coded by <a href="https://www.linkedin.com/in/chamindudahanayaka/">Chamindu Dahanayaka</a>.
+  </footer>
 </body>
 </html>
